@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+int average(int grades[], int n) {
+  int sum = 0;
+  for (int i = 0; i < n; i++) {
+    sum += grades[i];
+  }
+  return sum / n;
+}
+
 int main(void) {
   char students[100][100];
   int grades[100];
@@ -22,10 +30,6 @@ int main(void) {
     grades[i] = grade;
   }
 
-  for (int i = 0; i < count; i++) {
-    printf("%s\n", students[i]);
-    printf("%d\n", grades[i]);
-  }
-
+  printf("average grade: %d\n", average(grades, count));
   return EXIT_SUCCESS;
 }
