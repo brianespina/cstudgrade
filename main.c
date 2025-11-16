@@ -10,6 +10,15 @@ int average(int grades[], int n) {
   return sum / n;
 }
 
+int max_grade(int grades[], int n) {
+  int max = 0;
+  for (int i = 1; i < n; i++) {
+    if (grades[i] > grades[max])
+      max = i;
+  }
+  return max;
+}
+
 int main(void) {
   char students[100][100];
   int grades[100];
@@ -29,6 +38,8 @@ int main(void) {
     int grade = (int)strtol(buff, NULL, 10);
     grades[i] = grade;
   }
+  int max = max_grade(grades, count);
+  printf("Highest grade is %s with %d\n", students[max], grades[max]);
 
   printf("average grade: %d\n", average(grades, count));
   return EXIT_SUCCESS;
